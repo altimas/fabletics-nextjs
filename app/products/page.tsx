@@ -1,9 +1,9 @@
-import { Product } from "@/mocks/products.mocks";
+import { Product, productsSchema } from "@/mocks/products.mocks";
 import Image from "next/image";
 
 export default async function ProductsPage() {
-  const resp = await fetch("http://localthost:3000/api/products");
-  const products = (await resp.json()) as Product[];
+  const resp = await fetch("http://localhost:3000/api/products");
+  const products = productsSchema.parse(await resp.json());
 
   return (
     <>

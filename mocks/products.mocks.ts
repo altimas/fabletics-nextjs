@@ -5,8 +5,10 @@ export const productSchema = z.object({
   name: z.string(),
   price: z.number(),
 });
+export const productsSchema = z.array(productSchema);
 
 export type Product = z.infer<typeof productSchema>;
+export type Products = z.infer<typeof productsSchema>;
 
 export const mockProducts: Product[] = [
   { id: 1, name: "Nike Air Max 90", price: 125 },
